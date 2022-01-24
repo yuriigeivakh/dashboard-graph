@@ -38,32 +38,32 @@ class Title extends Component<TitleProps> {
     return (
       <Accordion id="edit">
         <Accordion.Header>
-            {title}
-            <ArrowDown/>
-          </Accordion.Header>
+          {title}
+          <ArrowDown/>
+        </Accordion.Header>
       <Accordion.Collapse eventKey=''>
         <>
-        <Dropdown.Item>
-          <Link to={`/${slug}/view`}>View</Link>
-        </Dropdown.Item>
-        <Dropdown.Item>
-          <Link to={`/${slug}/edit`}>Edit</Link>
-        </Dropdown.Item>
-        <Dropdown.Item>
-          Chart type
+          <Dropdown.Item>
+            <Link to={`/${slug}/view`}>View</Link>
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <Link to={`/${slug}/edit`}>Edit</Link>
+          </Dropdown.Item>
+          <Dropdown.Item>
+            Chart type
 
-          {graphTypes.map(({ label, value }) => {
-            return (
-              <TypeItem
-                key={value}
-                onClick={this.handleClick}
-                type={type}
-                value={value}
-                label={label}
-              />
-            );
-          })}
-        </Dropdown.Item>
+            {graphTypes.map(({ label, value }) => {
+              return (
+                <TypeItem
+                  key={value}
+                  onClick={this.handleClick}
+                  type={type}
+                  value={value}
+                  label={label}
+                />
+              );
+            })}
+          </Dropdown.Item>
         </>
         </Accordion.Collapse>
       </Accordion>

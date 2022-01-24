@@ -7,19 +7,19 @@ import { Chart } from "../interfaces";
 interface GridItemContainerProps {
   data: Chart;
   slug: string;
-  style?: {
-    width: string;
-    height: string;
-  }
+  width?: number
 }
 
 const GridItemContainer: React.FC<GridItemContainerProps> = ({
   slug,
   data,
-  style,
+  children,
+  ...props
 }) => {
   return (
-    <GridItem data={data} slug={slug} style={style}/>
+    <GridItem slug={slug} data={data} {...props}>
+      {children}
+    </GridItem>
   );
 };
 

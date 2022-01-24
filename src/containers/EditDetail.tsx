@@ -79,5 +79,4 @@ class EditDetail extends Component<EditDetailProps> {
   }
 }
 
-// export default EditDetail;
 export default connect(null, { setTitle, setType })(EditDetail);

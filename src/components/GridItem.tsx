@@ -1,4 +1,5 @@
-import React from "react";
+import React, { ReactNode } from "react";
+import { WidthProvider } from "react-grid-layout";
 
 import GraphBlock from "./GraphBlock";
 import Title from "../containers/Title";
@@ -11,27 +12,33 @@ interface GridItemProps {
     width: string;
     height: string;
   };
+  children: ReactNode;
+  className?: string;
+  width?: number;
+  height?: number;
 }
 
 const GridItem = ({
   data,
   style,
   slug,
+  children,
+  className,
+  width = 400,
+  height = 300,
+  ...props
 }: GridItemProps) => {
-  console.warn(style, 'style')
-  const width = parseInt(style?.width || '300', 10);
-  const height = parseInt(style?.height || '100', 10) - 50;
-
   return (
-    <div className="grid-item" style={style}>
+    <div className={`grid-item ${className}`} {...props}>
       <div className="grid-item__title">
         <Title title={data.title} type={data.type} slug={slug} />
       </div>
       <div className="grid-item__graph">
-        <GraphBlock type={data.type} data={data.data} width={width} height={height} />
+        <GraphBlock type={data.type} data={data.data} width={width} height={height - 50} />
       </div>
+      {children}
     </div>
   );
 };
 
-export default GridItem;
+export default WidthProvider(GridItem);

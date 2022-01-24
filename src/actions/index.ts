@@ -37,9 +37,7 @@ export const setLayout = (layout: string, root: number) => (
   });
 };
 
-export const setBreakPoint = (breakpoint: number) => (dispatch: Dispatch) => {
-  dispatch({
-    type: "SET_BREAKPOINT",
-    payload: breakpoint
-  });
-};
+export const setBreakPoint = (breakpoint: number) => ({
+  type: "SET_BREAKPOINT",
+  payload: breakpoint
+});

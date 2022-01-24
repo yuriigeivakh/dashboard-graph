@@ -87,6 +87,15 @@ label {
   background-color: transparent;
   border: none;
 }
+.accordion-collapse.collapse.show, .accordion-collapse.collapsing {
+  position: absolute;
+  left: 50%; transform:
+  translateX(-50%);
+  z-index: 100;
+  background-color: rgba(20,20,20, 0.6);
+  padding: 5px 50px;
+  border-radius: 5px;
+}
 .dropdown-item {
   display: block;
 }

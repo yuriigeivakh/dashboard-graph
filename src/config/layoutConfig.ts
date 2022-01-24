@@ -1,21 +1,21 @@
 export default {
   lg: [
     {
-      w: 8,
+      w: 12,
       h: 2,
       x: 0,
       y: 0,
-      i: "revenueToday"
+      i: "revenueToday",
     },
     {
-      w: 4,
+      w: 6,
       h: 2,
-      x: 8,
+      x: 12,
       y: 0,
       i: "revenueWeek"
     },
     {
-      w: 8,
+      w: 6,
       h: 2,
       x: 0,
       y: 0,
@@ -24,8 +24,8 @@ export default {
     {
       w: 3,
       h: 2,
-      x: 3,
-      y: 2,
+      x: 5,
+      y: 0,
       i: "topSellers"
     },
     {
@@ -52,8 +52,8 @@ export default {
   ],
   md: [
     {
-      w: 12,
-      h: 4,
+      w: 8,
+      h: 2,
       x: 0,
       y: 0,
       i: "revenueToday"
@@ -61,12 +61,12 @@ export default {
     {
       w: 4,
       h: 2,
-      x: 0,
+      x: 6,
       y: 0,
       i: "revenueWeek"
     },
     {
-      w: 3,
+      w: 4,
       h: 2,
       x: 0,
       y: 0,
@@ -75,21 +75,21 @@ export default {
     {
       w: 3,
       h: 2,
-      x: 0,
+      x: 3,
       y: 0,
       i: "topSellers"
     },
     {
       w: 3,
       h: 2,
-      x: 0,
+      x: 6,
       y: 2,
       i: "topAds"
     },
     {
       w: 3,
       h: 2.5,
-      x: 0,
+      x: 3,
       y: 2,
       i: "age"
     },

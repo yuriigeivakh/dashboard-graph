@@ -13,11 +13,11 @@ interface DetailGraphBlockProps {
 const DetailGraphBlock: React.FC<DetailGraphBlockProps> = ({
   type,
   data,
-  width = 100
+  width = 400
 }) => {
   return (
     <div className="detail__graph">
-      <GraphBlock type={type} data={data} width={width} height={450} />
+      <GraphBlock type={type} data={data} width={width - 50} height={450} />
     </div>
   );
 };

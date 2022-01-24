@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 import { Responsive, WidthProvider, Layouts } from "react-grid-layout";
 
 import GridItemContainer from "../containers/GridItemContainer";
@@ -9,14 +9,26 @@ import { setBreakPoint } from "../actions";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-interface DashboardProps {
-  data: DataChart;
-  layouts: Layouts;
-  setBreakPoint: (breakpoint: number) => void;
-}
+const mapStateToProps = (
+  state,
+) => {
+  return {
+    data: state.data,
+    layouts: { ...state.layouts },
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  setBreakPoint: (breakpoint: number) => dispatch(setBreakPoint(breakpoint))
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps)
+
+type DashboardProps = ConnectedProps<typeof connector>
 
 const Dashboard: React.FC<DashboardProps> = ({ data, layouts, setBreakPoint }) => {
   const handleBreakPointChange = (breakpoint) => {
+    console.warn('handle')
     setBreakPoint(breakpoint);
   };
 
@@ -28,28 +40,19 @@ const Dashboard: React.FC<DashboardProps> = ({ data, layouts, setBreakPoint }) =
         onBreakpointChange={handleBreakPointChange}
         isDraggable
         isResizable
-        isDroppable
+        // isRearrangeable
         measureBeforeMount
+        autoSize
         draggableHandle=".grid-item__title"
         breakpoints={{ lg: 1280, md: 992, sm: 767, xs: 480, xxs: 0 }}
         cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
       >
         {Object.keys(data).map((item, index) => (
-          <GridItemContainer data={data[item]} key={index} slug={item}/>
+          <GridItemContainer data={data[item]} key={index} slug={item} />
         ))}
       </ResponsiveGridLayout>
     </div>
   );
 };
 
-const mapStateToProps = (
-  state,
-) => {
-  return {
-    data: state.data,
-    layouts: { ...state.layouts },
-    setBreakPoint,
-  };
-};
-
-export default connect<DashboardProps, {}>(mapStateToProps as any, null, null, { pure: false })(Dashboard);
+export default connector(Dashboard);
